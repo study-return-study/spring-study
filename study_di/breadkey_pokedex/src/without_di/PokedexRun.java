@@ -1,6 +1,4 @@
-package stduy_di.breadkey_pokedex.without_di;
-
-import stduy_di.breadkey_pokedex.Pokemon;
+package without_di;
 
 public class PokedexRun {
     // 웹 애플리케이션의 뷰와 컨트롤러를 대신하는 클래스

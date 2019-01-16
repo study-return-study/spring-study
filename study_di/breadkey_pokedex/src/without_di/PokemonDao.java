@@ -1,6 +1,4 @@
-package stduy_di.breadkey_pokedex.without_di;
-
-import stduy_di.breadkey_pokedex.Pokemon;
+package without_di;
 
 import java.util.HashMap;
 

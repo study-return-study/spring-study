@@ -1,6 +1,4 @@
-package stduy_di.breadkey_pokedex.without_di;
-
-import stduy_di.breadkey_pokedex.Pokemon;
+package without_di;
 
 public class PokedexService {
     // 비즈니스 로직을 실현하는 클래스

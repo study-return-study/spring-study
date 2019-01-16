@@ -1,4 +1,4 @@
-package stduy_di.breadkey_pokedex;
+package without_di;
 
 public class Pokemon {
     private int id;

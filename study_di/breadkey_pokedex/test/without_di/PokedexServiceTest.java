@@ -1,8 +1,7 @@
-package stduy_di.breadkey_pokedex.without_di;
+package without_di;
 
 import org.junit.Before;
 import org.junit.Test;
-import stduy_di.breadkey_pokedex.Pokemon;
 
 import static org.junit.Assert.*;
 
