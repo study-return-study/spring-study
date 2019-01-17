@@ -11,6 +11,7 @@
       <configuration>
         <fileset id="fileset" name="ApplicationContext" removed="false">
           <file>file://$MODULE_DIR$/study_di/breadkey/src/di_annotation/pokedex/config/applicationContext.xml</file>
+          <file>file://$MODULE_DIR$/study_di/breadkey/src/di_scope/config/applicationContext.xml</file>
         </fileset>
       </configuration>
     </facet>
