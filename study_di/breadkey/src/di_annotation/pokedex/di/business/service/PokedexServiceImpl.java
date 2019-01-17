@@ -3,9 +3,9 @@ package di_annotation.pokedex.di.business.service;
 import di_annotation.pokedex.di.business.domain.Pokemon;
 import di_annotation.pokedex.di.dataaccess.PokemonDao;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class PokedexServiceImpl implements PokedexService {
     // 비즈니스 로직을 실현하는 클래스
     @Autowired

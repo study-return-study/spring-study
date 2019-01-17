@@ -1,10 +1,11 @@
 package di_annotation.pokedex.di.dataaccess;
 
 import di_annotation.pokedex.di.business.domain.Pokemon;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+
 import java.util.HashMap;
 
-@Component
+@Repository
 public class PokemonDaoImpl implements PokemonDao {
     // 포켓몬 데이터 액세스 오브젝트
 
