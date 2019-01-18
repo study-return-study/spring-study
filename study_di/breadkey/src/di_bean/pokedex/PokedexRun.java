@@ -11,7 +11,6 @@ public class PokedexRun {
         run.execute();
     }
 
-    @SuppressWarnings("res")
     public void execute() {
         BeanFactory context = new ClassPathXmlApplicationContext("/di_bean/pokedex/config/applicationContext.xml");
         PokedexService pokedexService = context.getBean(PokedexService.class);
