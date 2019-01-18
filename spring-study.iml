@@ -24,6 +24,9 @@
       <sourceFolder url="file://$MODULE_DIR$/study_di/breadkey/test" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/study_di/breadkey/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/study_di/breadkey/res" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/study_di/dahunlim/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/study_di/dahunlim/res" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/study_di/dahunlim/test" isTestSource="true" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
