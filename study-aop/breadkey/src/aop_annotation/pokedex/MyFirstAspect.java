@@ -11,9 +11,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class MyFirstAspect {
     @Before("execution(* findPokemon(int))")
-    public void before() {
+    public void before(JoinPoint joinPoint) {
         // 메서드 시작 시 동작하는 어드바이스
-        System.out.println("Before");
+        Signature signature = joinPoint.getSignature();
+        System.out.print("Before 메서드명: " + signature.getName() + "(");
+        Object[] args = joinPoint.getArgs();
+        System.out.println(args[0] +")");
     }
 
     @After("execution(* findPokemon(int))")
