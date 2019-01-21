@@ -14,6 +14,10 @@ public class PokedexServiceImpl implements PokedexService {
         this.pokemonDao = pokemonDao;
     }
 
+    public void addPokemon(Pokemon pokemon) {
+        pokemonDao.addPokemon(pokemon);
+    }
+
     public Pokemon findByPokemonId(int id) {
         return pokemonDao.findByPokemonId(id);
     }

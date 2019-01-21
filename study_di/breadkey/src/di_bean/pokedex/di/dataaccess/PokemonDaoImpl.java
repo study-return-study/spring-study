@@ -24,6 +24,10 @@ public class PokemonDaoImpl implements PokemonDao {
         ));
     }
 
+    public void addPokemon(Pokemon pokemon) {
+        pokemonDatabase.put(pokemon.getId(), pokemon);
+    }
+
     public Pokemon findByPokemonId(int id) {
         return pokemonDatabase.get(id);
     }
