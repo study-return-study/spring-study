@@ -14,8 +14,12 @@
           <file>file://$MODULE_DIR$/study_di/breadkey/src/di_scope/config/applicationContext.xml</file>
           <file>file://$MODULE_DIR$/study_di/breadkey/src/di_bean/pokedex/config/applicationContext.xml</file>
           <file>file://$MODULE_DIR$/study_di/breadkey/src/di_bean/property_file/config/applicationContext.xml</file>
+          <file>file://$MODULE_DIR$/study_aop/breadkey/src/aop_annotation/pokedex/config/applicationContext.xml</file>
         </fileset>
       </configuration>
+    </facet>
+    <facet type="AspectJ" name="AspectJ">
+      <configuration />
     </facet>
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
@@ -27,6 +31,9 @@
       <sourceFolder url="file://$MODULE_DIR$/study_di/dahunlim/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/study_di/dahunlim/res" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/study_di/dahunlim/test" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/study-aop/breadkey/test" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/study-aop/breadkey/res" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/study-aop/breadkey/src" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -48,5 +55,7 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="aspectjrt" level="application" />
+    <orderEntry type="library" name="aspectjweaver" level="application" />
   </component>
 </module>
