@@ -41,6 +41,9 @@ public class ExecuteSqlMain {
         System.out.println(map.get("PET_NAME"));
         System.out.println(map.get("OWNER_NAME"));
 
+        List<Map<String, Object>> petList = jdbcTemplate.queryForList("SELECT * FROM PET WHERE OWNER_NAME=?", ownerName);
+        System.out.println(petList.get(0).get("PET_NAME"));
+
         List<Integer> priceList = jdbcTemplate.queryForList("SELECT PRICE FROM PET WHERE OWNER_NAME=?", Integer.class, ownerName);
         System.out.println(priceList);
 
