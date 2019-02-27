@@ -28,10 +28,15 @@ public class Main {
         for (Pokemon pokemon : pokemonList) {
             printStats(pokemon, pokedexService);
         }
+
+        Pokemon charmander = new Pokemon(4, "파이리", 39, 52, 43, 60, 50, 65);
+        pokedexService.addPokemon(charmander);
+        printStats(pokedexService.findByPokemonId(4), pokedexService);
     }
 
     private static void printStats(Pokemon pokemon, PokedexService pokedexService) {
         System.out.println(pokemon.getPokemonId() + ". " + pokemon.getPokemonName());
+        System.out.println("HP: " + pokemon.getHp());
         System.out.println("공격: " + pokemon.getAttack());
         System.out.println("방어: " + pokemon.getDefense());
         System.out.println("특수공격: " + pokemon.getSpecialAttack());

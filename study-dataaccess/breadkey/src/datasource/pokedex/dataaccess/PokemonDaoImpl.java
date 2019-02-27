@@ -23,7 +23,8 @@ public class PokemonDaoImpl implements PokemonDao {
 
     @Override
     public void addPokemon(Pokemon pokemon) {
-
+        jdbcTemplate.update("INSERT INTO POKEMON (POKEMON_ID, POKEMON_NAME, HP, ATTACK, DEFENSE, SPECIAL_ATTACK, SPECIAL_DEFENSE, SPEED) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+                pokemon.getPokemonId(), pokemon.getPokemonName(), pokemon.getHp(), pokemon.getAttack(), pokemon.getDefense(), pokemon.getSpecialAttack(), pokemon.getSpecialDefense(), pokemon.getSpeed());
     }
 
     @Override
