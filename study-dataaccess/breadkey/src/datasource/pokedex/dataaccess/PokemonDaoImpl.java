@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -29,6 +30,8 @@ public class PokemonDaoImpl implements PokemonDao {
                 pokemon.getPokemonId(), pokemon.getPokemonName(), pokemon.getHp(), pokemon.getAttack(), pokemon.getDefense(), pokemon.getSpecialAttack(), pokemon.getSpecialDefense(), pokemon.getSpeed());
     }
     */
+
+    /*
     public void addPokemon(Pokemon pokemon) {
         namedParameterJdbcTemplate.update("INSERT INTO POKEMON (POKEMON_ID, POKEMON_NAME, HP, ATTACK, DEFENSE, SPECIAL_ATTACK, SPECIAL_DEFENSE, SPEED)" +
                 " VALUES (:POKEMON_ID, :POKEMON_NAME, :HP, :ATTACK, :DEFENSE, :SPECIAL_ATTACK, :SPECIAL_DEFENSE, :SPEED)",
@@ -42,6 +45,14 @@ public class PokemonDaoImpl implements PokemonDao {
                 .addValue("SPECIAL_DEFENSE", pokemon.getSpecialDefense())
                 .addValue("SPEED", pokemon.getSpeed())
                 );
+    }
+    */
+    public void addPokemon(Pokemon pokemon) {
+        BeanPropertySqlParameterSource beanPropertySqlParameterSource = new BeanPropertySqlParameterSource(pokemon);
+
+        namedParameterJdbcTemplate.update("INSERT INTO POKEMON (POKEMON_ID, POKEMON_NAME, HP, ATTACK, DEFENSE, SPECIAL_ATTACK, SPECIAL_DEFENSE, SPEED)" +
+                " VALUES (:pokemonId, :pokemonName, :hp, :attack, :defense, :specialAttack, :specialDefense, :speed)",
+                beanPropertySqlParameterSource);
     }
 
     @Override
