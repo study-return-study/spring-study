@@ -9,4 +9,5 @@ public interface PokedexService {
     Pokemon findByPokemonId(int id);
     int calculateTotalBaseStats(Pokemon pokemon);
     List<Pokemon> findAllPokemons();
+    void addPokemons(List<Pokemon> pokemons);
 }

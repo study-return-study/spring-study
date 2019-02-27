@@ -36,4 +36,12 @@ public class PokemonDaoImpl implements PokemonDao {
     public List<Pokemon> findAllPokemons() {
         return (List<Pokemon>) pokemonDatabase.values();
     }
+
+    @Override
+    public void addPokemons(List<Pokemon> pokemons) {
+        for (Pokemon pokemon : pokemons) {
+            pokemonDatabase.put(pokemon.getPokemonId(), pokemon);
+        }
+
+    }
 }

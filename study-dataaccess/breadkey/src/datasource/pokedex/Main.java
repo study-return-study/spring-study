@@ -9,6 +9,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
@@ -32,6 +33,16 @@ public class Main {
         Pokemon charmander = new Pokemon(4, "파이리", 39, 52, 43, 60, 50, 65);
         pokedexService.addPokemon(charmander);
         printStats(pokedexService.findByPokemonId(4), pokedexService);
+
+        List<Pokemon> squrirtles = new ArrayList<>();
+        squrirtles.add(new Pokemon(7, "꼬부기", 44, 48, 65, 50, 64, 43));
+        squrirtles.add(new Pokemon(8, "어니부기", 59, 63, 80, 65, 80, 58));
+        squrirtles.add(new Pokemon(9, "거북왕", 79, 83, 100, 85, 105, 78));
+
+        pokedexService.addPokemons(squrirtles);
+        printStats(pokedexService.findByPokemonId(7), pokedexService);
+        printStats(pokedexService.findByPokemonId(8), pokedexService);
+        printStats(pokedexService.findByPokemonId(9), pokedexService);
     }
 
     private static void printStats(Pokemon pokemon, PokedexService pokedexService) {

@@ -37,4 +37,9 @@ public class PokedexServiceImpl implements PokedexService {
     public List<Pokemon> findAllPokemons() {
         return pokemonDao.findAllPokemons();
     }
+
+    @Override
+    public void addPokemons(List<Pokemon> pokemons) {
+        pokemonDao.addPokemons(pokemons);
+    }
 }

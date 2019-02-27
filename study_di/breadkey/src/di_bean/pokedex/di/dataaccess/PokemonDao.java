@@ -8,4 +8,5 @@ public interface PokemonDao {
     void addPokemon(Pokemon pokemon);
     Pokemon findByPokemonId(int id);
     List<Pokemon> findAllPokemons();
+    void addPokemons(List<Pokemon> pokemons);
 }
