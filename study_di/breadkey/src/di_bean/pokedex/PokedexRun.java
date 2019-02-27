@@ -17,6 +17,6 @@ public class PokedexRun {
         Pokemon pikachu = pokedexService.findByPokemonId(25);
         int totalBaseStats = pokedexService.calculateTotalBaseStats(pikachu);
 
-        System.out.println(pikachu.getName() + "의 종족값 총합은 " + totalBaseStats + "입니다.");
+        System.out.println(pikachu.getPokemonName() + "의 종족값 총합은 " + totalBaseStats + "입니다.");
     }
 }

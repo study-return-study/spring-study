@@ -5,14 +5,10 @@ import datasource.pokedex.config.DataSourceConfig;
 import datasource.pokedex.config.TemplateConfig;
 import di_bean.pokedex.di.business.domain.Pokemon;
 import di_bean.pokedex.di.business.service.PokedexService;
-import di_bean.pokedex.di.dataaccess.PokemonDao;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 
 public class Main {
@@ -35,7 +31,7 @@ public class Main {
     }
 
     private static void printStats(Pokemon pokemon, PokedexService pokedexService) {
-        System.out.println(pokemon.getId() + ". " + pokemon.getName());
+        System.out.println(pokemon.getPokemonId() + ". " + pokemon.getPokemonName());
         System.out.println("공격: " + pokemon.getAttack());
         System.out.println("방어: " + pokemon.getDefense());
         System.out.println("특수공격: " + pokemon.getSpecialAttack());

@@ -3,6 +3,7 @@ package datasource.pokedex.dataaccess;
 import di_bean.pokedex.di.business.domain.Pokemon;
 import di_bean.pokedex.di.dataaccess.PokemonDao;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -32,7 +33,7 @@ public class PokemonDaoImpl implements PokemonDao {
 
     @Override
     public List<Pokemon> findAllPokemons() {
-        return jdbcTemplate.query("SELECT* FROM POKEMON", new PokemonMapper());
+        return jdbcTemplate.query("SELECT* FROM POKEMON", new BeanPropertyRowMapper<Pokemon>(Pokemon.class));
     }
 }
 

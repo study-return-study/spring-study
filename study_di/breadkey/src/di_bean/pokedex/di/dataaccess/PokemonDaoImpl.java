@@ -1,7 +1,6 @@
 package di_bean.pokedex.di.dataaccess;
 
 import di_bean.pokedex.di.business.domain.Pokemon;
-import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.List;
@@ -26,7 +25,7 @@ public class PokemonDaoImpl implements PokemonDao {
     }
 
     public void addPokemon(Pokemon pokemon) {
-        pokemonDatabase.put(pokemon.getId(), pokemon);
+        pokemonDatabase.put(pokemon.getPokemonId(), pokemon);
     }
 
     public Pokemon findByPokemonId(int id) {

@@ -5,6 +5,7 @@ import datasource.jdbc.config.TemplateConfig;
 import datasource.jdbc.domain.Pet;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -57,7 +58,7 @@ public class ExecuteSqlMain {
                 pet.getPetId() + " " + pet.getPetName() + " " + pet.getOwnerName() + " " + pet.getBirthDate() + " " + pet.getPrice()
         );
 
-        List<Pet> pets = jdbcTemplate.query("SELECT * FROM PET WHERE OWNER_NAME=?", new PetRowMapper(), ownerName);
+        List<Pet> pets = jdbcTemplate.query("SELECT * FROM PET WHERE OWNER_NAME=?", new BeanPropertyRowMapper<Pet>(Pet.class), ownerName);
         for (Pet p : pets) {
             System.out.println(p.getPetName());
         }
