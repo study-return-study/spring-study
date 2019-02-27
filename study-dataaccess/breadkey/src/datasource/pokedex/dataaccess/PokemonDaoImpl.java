@@ -7,9 +7,7 @@ import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.namedparam.*;
 import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
@@ -68,6 +66,7 @@ public class PokemonDaoImpl implements PokemonDao {
     }
 
     @Override
+    /*
     public void addPokemons(List<Pokemon> pokemons) {
         int[] num = jdbcTemplate.batchUpdate(
                 "INSERT INTO POKEMON (POKEMON_ID, POKEMON_NAME, HP, ATTACK, DEFENSE, SPECIAL_ATTACK, SPECIAL_DEFENSE, SPEED)" +
@@ -90,6 +89,16 @@ public class PokemonDaoImpl implements PokemonDao {
                         return pokemons.size();
                     }
                 }
+        );
+    }
+    */
+
+    public void addPokemons(List<Pokemon> pokemons) {
+        SqlParameterSource[] batch = SqlParameterSourceUtils.createBatch(pokemons.toArray());
+        int[] num = namedParameterJdbcTemplate.batchUpdate(
+                "INSERT INTO POKEMON (POKEMON_ID, POKEMON_NAME, HP, ATTACK, DEFENSE, SPECIAL_ATTACK, SPECIAL_DEFENSE, SPEED)" +
+                        " VALUES (:pokemonId, :pokemonName, :hp, :attack, :defense, :specialAttack, :specialDefense, :speed)",
+                batch
         );
     }
 }
