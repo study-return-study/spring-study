@@ -56,6 +56,11 @@ public class ExecuteSqlMain {
         System.out.println(
                 pet.getPetId() + " " + pet.getPetName() + " " + pet.getOwnerName() + " " + pet.getBirthDate() + " " + pet.getPrice()
         );
+
+        List<Pet> pets = jdbcTemplate.query("SELECT * FROM PET WHERE OWNER_NAME=?", new PetRowMapper(), ownerName);
+        for (Pet p : pets) {
+            System.out.println(p.getPetName());
+        }
     }
 }
 

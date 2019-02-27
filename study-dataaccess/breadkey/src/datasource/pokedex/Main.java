@@ -13,6 +13,7 @@ import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 public class Main {
     public static void main (String[] args) {
@@ -25,12 +26,21 @@ public class Main {
 
         PokedexService pokedexService = context.getBean(PokedexService.class);
         Pokemon pikachu = pokedexService.findByPokemonId(id);
-        System.out.println(pikachu.getName());
-        System.out.println("공격: " + pikachu.getAttack());
-        System.out.println("방어: " + pikachu.getDefense());
-        System.out.println("특수공격: " + pikachu.getSpecialAttack());
-        System.out.println("특수방어: " + pikachu.getSpecialDefense());
-        System.out.println("스피드: " + pikachu.getSpeed());
-        System.out.println("종족값 총합: " + pokedexService.calculateTotalBaseStats(pikachu));
+        printStats(pikachu, pokedexService);
+
+        List<Pokemon> pokemonList = pokedexService.findAllPokemons();
+        for (Pokemon pokemon : pokemonList) {
+            printStats(pokemon, pokedexService);
+        }
+    }
+
+    private static void printStats(Pokemon pokemon, PokedexService pokedexService) {
+        System.out.println(pokemon.getId() + ". " + pokemon.getName());
+        System.out.println("공격: " + pokemon.getAttack());
+        System.out.println("방어: " + pokemon.getDefense());
+        System.out.println("특수공격: " + pokemon.getSpecialAttack());
+        System.out.println("특수방어: " + pokemon.getSpecialDefense());
+        System.out.println("스피드: " + pokemon.getSpeed());
+        System.out.println("종족값 총합: " + pokedexService.calculateTotalBaseStats(pokemon));
     }
 }

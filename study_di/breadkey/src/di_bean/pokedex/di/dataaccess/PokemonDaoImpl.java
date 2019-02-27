@@ -4,6 +4,7 @@ import di_bean.pokedex.di.business.domain.Pokemon;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
+import java.util.List;
 
 public class PokemonDaoImpl implements PokemonDao {
     // 포켓몬 데이터 액세스 오브젝트
@@ -30,5 +31,10 @@ public class PokemonDaoImpl implements PokemonDao {
 
     public Pokemon findByPokemonId(int id) {
         return pokemonDatabase.get(id);
+    }
+
+    @Override
+    public List<Pokemon> findAllPokemons() {
+        return (List<Pokemon>) pokemonDatabase.values();
     }
 }

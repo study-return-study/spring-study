@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 @Repository
 public class PokemonDaoImpl implements PokemonDao {
@@ -27,6 +28,11 @@ public class PokemonDaoImpl implements PokemonDao {
     @Override
     public Pokemon findByPokemonId(int id) {
         return jdbcTemplate.queryForObject("SELECT * FROM POKEMON WHERE POKEMON_ID=?", new PokemonMapper(), id);
+    }
+
+    @Override
+    public List<Pokemon> findAllPokemons() {
+        return jdbcTemplate.query("SELECT* FROM POKEMON", new PokemonMapper());
     }
 }
 
