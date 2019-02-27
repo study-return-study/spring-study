@@ -2,11 +2,14 @@ package datasource.jdbc;
 
 import datasource.jdbc.config.DataSourceConfig;
 import datasource.jdbc.config.TemplateConfig;
+import datasource.jdbc.domain.Owner;
 import datasource.jdbc.domain.Pet;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
@@ -62,6 +65,31 @@ public class ExecuteSqlMain {
         for (Pet p : pets) {
             System.out.println(p.getPetName());
         }
+
+        Owner owner = jdbcTemplate.query("SELECT * FROM OWNER O INNER JOIN PET P ON O.OWNER_NAME = P.OWNER_NAME WHERE O.OWNER_NAME=?",
+                new ResultSetExtractor<Owner>() {
+                    @Override
+                    public Owner extractData(ResultSet resultSet) throws SQLException, DataAccessException {
+                        if (!resultSet.next()) {
+                            return null;
+                        }
+                        Owner owner = new Owner();
+                        owner.setOwnerName(resultSet.getString("OWNER_NAME"));
+                        do {
+                            Pet pet = new Pet();
+                            pet.setPetId(resultSet.getInt("PET_ID"));
+                            pet.setPetName(resultSet.getString("PET_NAME"));
+                            pet.setOwnerName(resultSet.getString("OWNER_NAME"));
+                            pet.setPrice(resultSet.getInt("PRICE"));
+                            pet.setBirthDate(resultSet.getDate("BIRTH_DATE"));
+                            owner.getPetList().add(pet);
+                        } while (resultSet.next());
+
+                        return owner;
+                    }
+                },
+                ownerName);
+        System.out.println(owner.getPetList().size());
     }
 }
 
