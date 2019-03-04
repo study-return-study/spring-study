@@ -1,9 +1,9 @@
-package datasource.jdbc;
+package datasource.spring_jdbc.sample;
 
-import datasource.jdbc.config.DataSourceConfig;
-import datasource.jdbc.config.TemplateConfig;
-import datasource.jdbc.domain.Owner;
-import datasource.jdbc.domain.Pet;
+import datasource.spring_jdbc.sample.config.DataSourceConfig;
+import datasource.spring_jdbc.sample.config.TemplateConfig;
+import datasource.spring_jdbc.sample.domain.Owner;
+import datasource.spring_jdbc.sample.domain.Pet;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.dao.DataAccessException;

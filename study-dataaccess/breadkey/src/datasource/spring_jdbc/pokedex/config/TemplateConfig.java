@@ -1,4 +1,4 @@
-package datasource.pokedex.config;
+package datasource.spring_jdbc.pokedex.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

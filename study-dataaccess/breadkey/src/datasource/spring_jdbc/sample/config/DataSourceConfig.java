@@ -1,4 +1,4 @@
-package datasource.jdbc.config;
+package datasource.spring_jdbc.sample.config;
 
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.beans.factory.annotation.Value;

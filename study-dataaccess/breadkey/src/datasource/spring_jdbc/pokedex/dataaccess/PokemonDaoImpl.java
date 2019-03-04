@@ -1,16 +1,14 @@
-package datasource.pokedex.dataaccess;
+package datasource.spring_jdbc.pokedex.dataaccess;
 
 import di_bean.pokedex.di.business.domain.Pokemon;
 import di_bean.pokedex.di.dataaccess.PokemonDao;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.*;
 import org.springframework.stereotype.Repository;
 
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;

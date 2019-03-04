@@ -1,8 +1,8 @@
-package datasource.pokedex;
+package datasource.spring_jdbc.pokedex;
 
-import datasource.pokedex.config.AppConfig;
-import datasource.pokedex.config.DataSourceConfig;
-import datasource.pokedex.config.TemplateConfig;
+import datasource.spring_jdbc.pokedex.config.AppConfig;
+import datasource.spring_jdbc.pokedex.config.DataSourceConfig;
+import datasource.spring_jdbc.pokedex.config.TemplateConfig;
 import di_bean.pokedex.di.business.domain.Pokemon;
 import di_bean.pokedex.di.business.service.PokedexService;
 import org.springframework.context.ApplicationContext;

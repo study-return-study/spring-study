@@ -1,4 +1,4 @@
-package datasource.jdbc.domain;
+package datasource.spring_jdbc.sample.domain;
 
 import java.util.ArrayList;
 import java.util.List;
