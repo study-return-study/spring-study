@@ -25,7 +25,8 @@
         <property name="maxTotal" value="${jdbc.maxPoolSize}" />
     </bean>
     <jdbc:initialize-database data-source="dataSource">
-        <jdbc:script location="script/table.sql"/>
+        <jdbc:script location="script/table.sql" />
         <jdbc:script location="script/data.sql" />
+        <jdbc:script location="script/proc.sql" separator="/" />
     </jdbc:initialize-database>
 </beans>

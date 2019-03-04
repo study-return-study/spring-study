@@ -52,5 +52,11 @@ public class DataSourceConfig {
                 new ClassPathResource("/script/data.sql")
         );
         populator.execute(dataSource);
+        populator = new ResourceDatabasePopulator();
+        populator.addScript(
+                new ClassPathResource("/script/proc.sql")
+        );
+        populator.setSeparator("/");
+        populator.execute(dataSource);
     }
 }

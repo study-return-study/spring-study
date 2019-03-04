@@ -7,14 +7,14 @@ import datasource.jdbc.domain.Pet;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.dao.DataAccessException;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.ResultSetExtractor;
-import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.*;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -90,6 +90,18 @@ public class ExecuteSqlMain {
                 },
                 ownerName);
         System.out.println(owner.getPetList().size());
+
+        SimpleJdbcCall call = new SimpleJdbcCall(jdbcTemplate.getDataSource())
+                .withProcedureName("CALC_PET_PRICE")
+                .withoutProcedureColumnMetaDataAccess()
+                .declareParameters(
+                        new SqlParameter("IN_PET_ID", Types.INTEGER),
+                        new SqlOutParameter("OUT_PRICE", Types.INTEGER)
+                );
+        MapSqlParameterSource in = new MapSqlParameterSource().addValue("IN_PET_ID", id);
+        Map<String, Object> out = call.execute(in);
+        int price = (int) out.get("OUT_PRICE");
+        System.out.println(price);
     }
 }
 
