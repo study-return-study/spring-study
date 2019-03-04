@@ -93,11 +93,13 @@ public class ExecuteSqlMain {
 
         SimpleJdbcCall call = new SimpleJdbcCall(jdbcTemplate.getDataSource())
                 .withProcedureName("CALC_PET_PRICE")
+                // HSQLDB는 프로시저의 파리미터 등 메타 데이터 취득을 스프링이 지원하지 않아서 기술함
                 .withoutProcedureColumnMetaDataAccess()
                 .declareParameters(
                         new SqlParameter("IN_PET_ID", Types.INTEGER),
                         new SqlOutParameter("OUT_PRICE", Types.INTEGER)
                 );
+                // ------------------------------
         MapSqlParameterSource in = new MapSqlParameterSource().addValue("IN_PET_ID", id);
         Map<String, Object> out = call.execute(in);
         int price = (int) out.get("OUT_PRICE");
