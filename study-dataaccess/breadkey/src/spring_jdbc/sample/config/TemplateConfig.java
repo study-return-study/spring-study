@@ -1,4 +1,4 @@
-package datasource.spring_jdbc.pokedex.config;
+package spring_jdbc.sample.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -10,19 +10,20 @@ import javax.sql.DataSource;
 
 @Configuration
 public class TemplateConfig {
+
     @Autowired
-    private DataSource pokedexDataSource;
+    private DataSource dataSource;
 
     @Bean
     public JdbcTemplate jdbcTemplate() {
         JdbcTemplate jdbcTemplate = new JdbcTemplate();
-        jdbcTemplate.setDataSource(pokedexDataSource);
+        jdbcTemplate.setDataSource(dataSource);
 
         return jdbcTemplate;
     }
 
     @Bean
     public NamedParameterJdbcTemplate namedParameterJdbcTemplate() {
-        return new NamedParameterJdbcTemplate(pokedexDataSource);
+        return new NamedParameterJdbcTemplate(dataSource);
     }
 }

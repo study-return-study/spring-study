@@ -1,6 +1,6 @@
-package datasource.spring_jdbc.pokedex.config;
+package spring_jdbc.pokedex.config;
 
-import datasource.spring_jdbc.pokedex.dataaccess.PokemonDaoImpl;
+import spring_jdbc.pokedex.dataaccess.PokemonDaoImpl;
 import di_bean.pokedex.di.business.service.PokedexService;
 import di_bean.pokedex.di.business.service.PokedexServiceImpl;
 import di_bean.pokedex.di.dataaccess.PokemonDao;

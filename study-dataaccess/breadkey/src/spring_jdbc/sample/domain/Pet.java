@@ -1,4 +1,4 @@
-package datasource.spring_jdbc.sample.domain;
+package spring_jdbc.sample.domain;
 
 import java.util.Date;
 

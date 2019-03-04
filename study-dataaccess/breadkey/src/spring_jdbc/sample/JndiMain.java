@@ -1,4 +1,4 @@
-package datasource.spring_jdbc.sample;
+package spring_jdbc.sample;
 
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.context.ApplicationContext;
@@ -23,7 +23,7 @@ public class JndiMain {
         builder.bind("jdbc/MyDataSource", dataSource);
         builder.activate();
 
-        ApplicationContext context = new ClassPathXmlApplicationContext("datasource/spring_jdbc/sample/config/spring-jndi.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring_jdbc/sample/config/spring-jndi.xml");
 
         JdbcTemplate jdbcTemplate = context.getBean(JdbcTemplate.class);
 

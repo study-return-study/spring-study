@@ -1,4 +1,4 @@
-package datasource.spring_jdbc.pokedex.dataaccess;
+package spring_jdbc.pokedex.dataaccess;
 
 import di_bean.pokedex.di.business.domain.Pokemon;
 import di_bean.pokedex.di.dataaccess.PokemonDao;
