@@ -5,6 +5,8 @@ import di_bean.pokedex.di.business.domain.Pokemon;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 public class PokedexServiceImpl implements PokedexService {
     // 비즈니스 로직을 실현하는 클래스
     private PokemonDao pokemonDao;
@@ -29,5 +31,15 @@ public class PokedexServiceImpl implements PokedexService {
                 pokemon.getSpecialAttack() +
                 pokemon.getSpecialDefense() +
                 pokemon.getSpeed();
+    }
+
+    @Override
+    public List<Pokemon> findAllPokemons() {
+        return pokemonDao.findAllPokemons();
+    }
+
+    @Override
+    public void addPokemons(List<Pokemon> pokemons) {
+        pokemonDao.addPokemons(pokemons);
     }
 }
